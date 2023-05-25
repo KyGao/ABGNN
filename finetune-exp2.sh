@@ -1,11 +1,3 @@
-SABDAB_DATA_DIR=dataset/exp2-hern
-PRETRAINED_FILE=checkpoints/pretrained/checkpoint215.pt
-SAVE_DIR=checkpoints/exp2
-
-FAIRSEQ_MODELS_DIR=fairseq_models
-
-
-
 PEAK_LR=0.0001
 MAX_EPOCH=40
 PATIENCE=40
@@ -23,7 +15,12 @@ LOSS_DEC_X=2
 
 SEED=128
 
-export PYTHONPATH=fairseq/
+
+MODEL_NAME=pflen${PREFIX_LEN}_iter${ITER_NUM}_loss${LOSS_ENC_S}_${LOSS_DEC_S}_${LOSS_DEC_X}_lr${PEAK_LR}_bsz${MAX_SENTENCES}_seed${SEED}
+SABDAB_DATA_DIR=data/finetune/exp2-hern
+PRETRAINED_FILE=checkpoints/pretrained/checkpoint215.pt
+SAVE_DIR=checkpoints/exp2/${MODEL_NAME}
+FAIRSEQ_MODELS_DIR=fairseq_models
 
 echo $(which fairseq-train) 
 fairseq-train --sabdab-data $SABDAB_DATA_DIR \
@@ -43,3 +40,9 @@ fairseq-train --sabdab-data $SABDAB_DATA_DIR \
   --finetune-from-model $PRETRAINED_FILE \
   --patience $PATIENCE --tensorboard-logdir $SAVE_DIR/tensorboard  \
   --seed $SEED --num-workers 0
+
+python inference.py --cktpath $SAVE_DIR/checkpoint_best.pt > $SAVE_DIR/test_best.txt
+for infer_epoch in {1..40}
+do
+    python inference.py --cktpath $SAVE_DIR/checkpoint${infer_epoch}.pt > $SAVE_DIR/test${infer_epoch}.txt
+done

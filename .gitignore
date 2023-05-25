@@ -1,7 +1,8 @@
 # user added
 checkpoints/
 .vscode/
-dataset/
+data/fairseq-oas
+data/finetune
 logs/
 
 # Byte-compiled / optimized / DLL files

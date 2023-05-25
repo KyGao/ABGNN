@@ -8,13 +8,13 @@ PEAK_LR=${2:-0.0006}         # Peak learning rate, adjust as needed
 TOKENS_PER_SAMPLE=256   # Max sequence length
 MAX_POSITIONS=256       # Num. positional embeddings (usually same as above)
 MAX_SENTENCES=${3:-64}        # Number of sequences per batch (batch size)
-UPDATE_FREQ=${4:-64}         # Increase the batch size 16x
+UPDATE_FREQ=${4:-16}         # Increase the batch size 16x
 SAMPLE_MODE=${5:-"none"}
 CLIP_NORM=${6:-0.0}
-
+# The final real batch size is MAX_SENTENCES x GPU_NUM x UPDATE_FREQ
 
 MODEL_NAME=abbert_warmup${WARMUP_UPDATES}_lr${PEAK_LR}_maxsen${MAX_SENTENCES}_upfreq${UPDATE_FREQ}_sample${SAMPLE_MODE}_clip${CLIP_NORM}
-MODLE_PATH=checkpoints/$MODEL_NAME
+MODLE_PATH=checkpoints/pretrained/$MODEL_NAME
 
 export MKL_THREADING_LAYER=GNU
 echo $(which fairseq-train) 

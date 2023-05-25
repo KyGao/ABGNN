@@ -1,11 +1,5 @@
 if [ -z ${CDR} ]; then CDR='1'; fi
 
-SABDAB_DATA_DIR=dataset/exp1/cdrh${CDR}
-PRETRAINED_FILE=checkpoints/pretrained/checkpoint215.pt
-SAVE_DIR=checkpoints/exp1-cdrh${CDR}
-
-FAIRSEQ_MODELS_DIR=fairseq_models
-
 PEAK_LR=0.0001
 MAX_EPOCH=40
 PATIENCE=40
@@ -22,6 +16,13 @@ LOSS_DEC_S=1
 LOSS_DEC_X=1
 
 SEED=42
+
+MODEL_NAME=pflen${PREFIX_LEN}_iter${ITER_NUM}_loss${LOSS_ENC_S}_${LOSS_DEC_S}_${LOSS_DEC_X}_lr${PEAK_LR}_bsz${MAX_SENTENCES}_seed${SEED}
+SABDAB_DATA_DIR=data/finetune/exp1/cdrh${CDR}
+PRETRAINED_FILE=checkpoints/pretrained/checkpoint215.pt
+SAVE_DIR=checkpoints/exp1-cdrh${CDR}/${MODEL_NAME}
+FAIRSEQ_MODELS_DIR=fairseq_models
+
 
 # training
 echo $(which fairseq-train) 
