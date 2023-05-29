@@ -4,7 +4,7 @@ The work of ``[Pre-training Antibody Language Models for Antigen-Specific Comput
 
 ## Introduction
 
-<p align="center"><img src="figures/framework.pdf" width=80%></p>
+<p align="center"><img src="figures/framework.png" width=80%></p>
 <p align="center"><b>Schematic illustration of the ABGNN framework</b></p>
 
 The AbBERT is the pre-trained antibody model. Its `soft' prediction will be fed into the sequence GNN $\mathcal{H}_{seq}$, after encoding and generating the updated sequence, structure GNN $\mathcal{H}_{str}$ encodes the updated graph and then predict the structures. The sequence and structure prediction iteratively refine $T$ times. We use AA as the abbreviation of amino acid.
@@ -20,25 +20,7 @@ The AbBERT is the pre-trained antibody model. Its `soft' prediction will be fed 
 We collected all paired and unpaired data from [OAS Database](https://opig.stats.ox.ac.uk/webapps/oas/oas) using the provided scripts. We extracted the antibody sequences along with their CDR tags. Then we randomly split the dataset into three subsets: 1000 for validation, 1000 for testing, and the remaining for training. After processing, we obtained the following files: `seq.train.tokens`, `seq.valid.tokens`, `seq.test.tokens` and corresponding `tag.train.tokens`, `tag.valid.tokens`, `tag.test.tokens`. Finally, we preprocess these files into fairseq binary files using following scripts.
 
 ```shell
-TEXT=~/workspace/oas
-DEST=~/workspace/fairseq-oas
-mkdir -p $DEST
-
-fairseq-preprocess \
-    --only-source \
-    --trainpref $TEXT/seq.train.tokens \
-    --validpref $TEXT/seq.valid.tokens \
-    --testpref $TEXT/seq.test.tokens \
-    --destdir $DEST/seq \
-    --workers 24
-
-fairseq-preprocess \
-    --only-source \
-    --trainpref $TEXT/tag.train.tokens \
-    --validpref $TEXT/tag.valid.tokens \
-    --testpref $TEXT/tag.test.tokens \
-    --destdir $DEST/tag \
-    --workers 24
+bash pretrain-preprocess.sh
 ```
 
 When training, we can run:
