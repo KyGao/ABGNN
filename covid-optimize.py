@@ -513,7 +513,7 @@ def main(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     # data and ckpts
-    parser.add_argument("--cluster", type=str, default="dataset/exp3-covabdab/cdrh3_split.txt")
+    parser.add_argument("--cluster", type=str, default="data/finetune/exp3-covabdab/cdrh3_split.txt")
     parser.add_argument("--cktpath", type=str, default="checkpoints/0301-exp3-sabdab/checkpoint_best.pt")
     parser.add_argument("--save_dir", type=str, default='checkpoints/exp3-ckpts/temp')
     # training settings    
