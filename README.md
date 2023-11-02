@@ -4,10 +4,10 @@ Pre-training Antibody Language Models for Antigen-Specific Computational Antibod
 
 <div align="center">
 
-[![](https://img.shields.io/badge/paper-arxiv-red?style=plastic&logo=GitBook)](https://dl.acm.org/doi/abs/10.1145/3580305.3599468)
+[![](https://img.shields.io/badge/paper-kdd-red?style=plastic&logo=GitBook)](https://dl.acm.org/doi/abs/10.1145/3580305.3599468)
 [![](https://img.shields.io/badge/github-green?style=plastic&logo=github)](https://github.com/KyGao/ABGNN)
 [![](https://img.shields.io/badge/model-pink?style=plastic&logo=themodelsresource)](https://drive.google.com/file/d/1gKHsWUt_uqfFOKbhJDKln9M6gp4Z2xWa/view?usp=sharing) 
-[![](https://img.shields.io/badge/dataset-zenodo-orange?style=plastic&logo=zenodo)](https://drive.google.com/file/d/1em-WqXw6olCENOttQRSNWwZWa2xDHuFC/view?usp=sharing)
+[![](https://img.shields.io/badge/dataset-google_drive-orange?style=plastic&logo=zenodo)](https://drive.google.com/file/d/1em-WqXw6olCENOttQRSNWwZWa2xDHuFC/view?usp=sharing)
 </div>
 
 ## Introduction
