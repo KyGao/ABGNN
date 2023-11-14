@@ -10,6 +10,9 @@ Pre-training Antibody Language Models for Antigen-Specific Computational Antibod
 [![](https://img.shields.io/badge/dataset-google_drive-orange?style=plastic&logo=zenodo)](https://drive.google.com/file/d/1em-WqXw6olCENOttQRSNWwZWa2xDHuFC/view?usp=sharing)
 </div>
 
+## Overview
+This repository contains the source code for *KDD 2023* paper "[Pre-training Antibody Language Models for Antigen-Specific Computational Antibody Design](https://doi.org/10.1145/3580305.3599468)". If you have questions, don't hesitate to open an issue or ask me via <im_kai@hust.edu.cn> or Lijun Wu via <lijuwu@microsoft.com>. We are happy to hear from you!
+
 ## Introduction
 
 <p align="center"><img src="figures/framework.png" width=80%></p>
